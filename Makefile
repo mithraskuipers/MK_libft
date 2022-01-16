@@ -42,7 +42,9 @@ SRCS = 	ft_atoi.c \
 		ft_itoa_base.c \
 		ft_toabs.c \
 		ft_utoa_base.c \
-		ft_utoa.c
+		ft_utoa.c \
+		ft_countlines_fd.c \
+		ft_strlen_fd.c
 
 OFILES = $(SRCS:.c=.o)
 
