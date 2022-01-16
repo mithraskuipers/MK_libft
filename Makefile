@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRCS = 	ft_atoi.c \
+SRCS =	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -35,16 +35,6 @@ SRCS = 	ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		ft_isupper.c \
-		ft_stoupper.c \
-		ft_ndigits.c \
-		ft_ndigits_base.c \
-		ft_undigits_base.c \
-		ft_itoa_base.c \
-		ft_toabs.c \
-		ft_utoa_base.c \
-		ft_utoa.c \
-		ft_countlines_fd.c \
-		ft_strlen_fd.c
 
 OFILES = $(SRCS:.c=.o)
 
@@ -61,6 +51,19 @@ BONUS_SRC = $(SRCS) \
 
 BONUS_OFILES = $(OFILES) $(BONUS_SRC:.c=.o)
 
+PLUSPLUS_SRC =	ft_stoupper.c \
+		ft_ndigits.c \
+		ft_ndigits_base.c \
+		ft_undigits_base.c \
+		ft_itoa_base.c \
+		ft_toabs.c \
+		ft_utoa_base.c \
+		ft_utoa.c \
+		ft_countlines_fd.c \
+		ft_strlen_fd.c
+
+PLUSPLUS_OFILES = $(OFILES) $(BONUS_SRC:.c=.o) $(PLUSPLUS_SRC:.c=.o)
+
 INCLUDES = libft.h
 
 all: $(NAME)
@@ -73,12 +76,22 @@ bonus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC)
 	@touch bonus
 	@ar rcs $(NAME) $?
 	@/bin/rm -f bonus
+	@echo "\033[92mCompiled library + bonus\033[0m"
+
+
+plusplus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC) $(PLUSPLUS_OFILES) $(PLUSPLUS_SRC)
+	@touch bonus
+	@touch plusplus
+	@ar rcs $(NAME) $?
+	@/bin/rm -f bonus
+	@/bin/rm -f plusplus
+	@echo "\033[92mCompiled library + bonus + plusplus\033[0m"
 
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -c $<
 
 clean:
-	@/bin/rm -f $(BONUS_OFILES)
+	@/bin/rm -f $(PLUSPLUS_OFILES)
 	@/bin/rm -f a.out
 	@/bin/rm -f bonus
 
