@@ -60,7 +60,8 @@ PLUSPLUS_SRC =	ft_stoupper.c \
 		ft_utoa_base.c \
 		ft_utoa.c \
 		ft_countlines_fd.c \
-		ft_strlen_fd.c
+		ft_strlen_fd.c \
+		ft_strlen_char.c
 
 PLUSPLUS_OFILES = $(OFILES) $(BONUS_SRC:.c=.o) $(PLUSPLUS_SRC:.c=.o)
 
@@ -70,13 +71,13 @@ all: $(NAME)
 
 $(NAME): $(OFILES) $(INCLUDES)
 	@ar rcs $(NAME) $?
-	@echo "\033[92mCompiled library\033[0m"
+	@echo "\033[92mCompiled libft library\033[0m"
 
 bonus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC)
 	@touch bonus
 	@ar rcs $(NAME) $?
 	@/bin/rm -f bonus
-	@echo "\033[92mCompiled library + bonus\033[0m"
+	@echo "\033[92mCompiled libft library + bonus\033[0m"
 
 
 plusplus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC) $(PLUSPLUS_OFILES) $(PLUSPLUS_SRC)
@@ -85,7 +86,7 @@ plusplus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC) $(PLUSPLUS_OFILES) $(PLUSPLUS_SRC
 	@ar rcs $(NAME) $?
 	@/bin/rm -f bonus
 	@/bin/rm -f plusplus
-	@echo "\033[92mCompiled library + bonus + plusplus\033[0m"
+	@echo "\033[92mCompiled libft library + bonus + plusplus\033[0m"
 
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -c $<

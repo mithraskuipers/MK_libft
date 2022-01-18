@@ -71,5 +71,6 @@ char	*ft_utoa_base(unsigned long long n, int base);
 char	*ft_utoa(unsigned int n);
 int		ft_countlines_fd(int fd);
 int		ft_strlen_fd(int fd);
+int		ft_strlen_char(char *s, int c);
 
 #endif
