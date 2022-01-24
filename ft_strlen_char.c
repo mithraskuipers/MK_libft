@@ -6,9 +6,11 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/18 18:11:47 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/01/18 18:12:02 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/01/18 21:28:36 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strlen_char(char *s, int c)
 {
