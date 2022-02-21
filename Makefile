@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/02/21 15:29:25 by mikuiper      #+#    #+#                  #
+#    Updated: 2022/02/21 15:36:34 by mikuiper      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+GREEN = \033[92m
 NAME = libft.a
 
 SRCS =	ft_atoi.c \
@@ -35,10 +48,6 @@ SRCS =	ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		ft_isupper.c \
-
-OFILES = $(SRCS:.c=.o)
-
-BONUS_SRC = $(SRCS) \
 		ft_lstadd_back_bonus.c \
 		ft_lstadd_front_bonus.c \
 		ft_lstclear_bonus.c \
@@ -47,11 +56,8 @@ BONUS_SRC = $(SRCS) \
 		ft_lstlast_bonus.c \
 		ft_lstmap_bonus.c \
 		ft_lstnew_bonus.c \
-		ft_lstsize_bonus.c
-
-BONUS_OFILES = $(OFILES) $(BONUS_SRC:.c=.o)
-
-PLUSPLUS_SRC =	ft_stoupper.c \
+		ft_lstsize_bonus.c \
+		ft_stoupper.c \
 		ft_ndigits.c \
 		ft_ndigits_base.c \
 		ft_undigits_base.c \
@@ -61,42 +67,35 @@ PLUSPLUS_SRC =	ft_stoupper.c \
 		ft_utoa.c \
 		ft_countlines_fd.c \
 		ft_strlen_fd.c \
-		ft_strlen_char.c
+		ft_strlen_char.c \
+		fs_c.c \
+		fs_di.c \
+		fs_p.c \
+		fs_s.c \
+		fs_u.c \
+		fs_x.c \
+		ft_printf.c \
+		get_next_line.c
 
-PLUSPLUS_OFILES = $(OFILES) $(BONUS_SRC:.c=.o) $(PLUSPLUS_SRC:.c=.o)
-
-INCLUDES = libft.h
+OFILES = $(SRCS:.c=.o)
+INCLUDES = libft.h get_next_line.h ft_printf.h
 
 all: $(NAME)
 
 $(NAME): $(OFILES) $(INCLUDES)
 	@ar rcs $(NAME) $?
-	@echo "\033[92mCompiled libft library\033[0m"
-
-bonus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC)
-	@touch bonus
-	@ar rcs $(NAME) $?
-	@/bin/rm -f bonus
-	@echo "\033[92mCompiled libft library + bonus\033[0m"
-
-
-plusplus: $(NAME) $(BONUS_OFILES) $(BONUS_SRC) $(PLUSPLUS_OFILES) $(PLUSPLUS_SRC)
-	@touch bonus
-	@touch plusplus
-	@ar rcs $(NAME) $?
-	@/bin/rm -f bonus
-	@/bin/rm -f plusplus
-	@echo "\033[92mCompiled libft library + bonus + plusplus\033[0m"
+	@echo "$(GREEN)[libft] - Created a Library and Object Files.$(NOCOLOR)"
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -c $<
+	@$(CC) -Wall -Wextra -Werror -c $<
 
 clean:
-	@/bin/rm -f $(PLUSPLUS_OFILES)
+	@/bin/rm -f $(OFILES)
 	@/bin/rm -f a.out
-	@/bin/rm -f bonus
+	@echo "$(GREEN)[libft] - Removed All Object Files.$(NOCOLOR)"
 
-fclean:	clean
+fclean:    clean
 	@/bin/rm -f $(NAME)
+	@echo "$(GREEN)[libft] - Removed .a file and all .o files.$(NOCOLOR)"
 
 re: fclean all
