@@ -1,20 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/22 20:49:59 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/03/22 20:50:00 by mikuiper      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct s_list
 {

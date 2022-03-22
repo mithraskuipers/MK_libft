@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memchr.c                                        :+:    :+:            */
+/*   ft_strlen_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/09 14:53:34 by mikuiper      #+#    #+#                 */
-/*   Updated: 2021/10/29 08:49:17 by mikuiper      ########   odam.nl         */
+/*   Created: 2022/01/16 12:25:17 by mikuiper      #+#    #+#                 */
+/*   Updated: 2022/01/16 12:28:54 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_strlen_fd(int fd)
 {
-	unsigned char	*s_uc;
-	unsigned char	c_uc;
-	size_t			i;
+	char	buff[1];
+	int		len;
+	int		nbytes;
 
-	i = 0;
-	s_uc = (unsigned char *)s;
-	c_uc = (unsigned char)c;
-	while (i < n)
+	buff[0] = '\0';
+	nbytes = 1;
+	len = 0;
+	while(nbytes)
 	{
-		if (s_uc[i] == c_uc)
-			return (&(s_uc[i]));
-		i++;
+		nbytes = read(fd, buff, 1);
+		if (buff[0] != '\n')
+		{
+			len++;
+		}
+		else
+		{
+			break;
+		}
 	}
-	return (NULL);
+	return (len);
 }
