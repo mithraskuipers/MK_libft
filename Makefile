@@ -6,7 +6,7 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/21 15:29:25 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/03/22 20:50:12 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/03/22 20:51:32 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ SRCS =	ft_atoi.c \
 		ft_strlen_char.c \
 
 OFILES = $(SRCS:.c=.o)
-INCLUDES = libft.h get_next_line.h ft_printf.h
+INCLUDES = libft.h
 
 all: $(NAME)
 
