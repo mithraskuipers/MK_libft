@@ -6,7 +6,7 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/21 15:29:25 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/03/22 20:51:32 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/03/26 22:47:53 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS =	ft_atoi.c \
 		ft_countlines_fd.c \
 		ft_strlen_fd.c \
 		ft_strlen_char.c \
+		mk_putnbr_base.c
 
 OFILES = $(SRCS:.c=.o)
 INCLUDES = libft.h
@@ -75,19 +76,23 @@ INCLUDES = libft.h
 all: $(NAME)
 
 $(NAME): $(OFILES) $(INCLUDES)
+	@echo "$(GREEN)[libft] - Compiling library..$(NOCOLOR)"
 	@ar rcs $(NAME) $?
-	@echo "$(GREEN)[libft] - Created a Library and Object Files.$(NOCOLOR)"
+	@echo "$(GREEN)[libft] - Done!$(NOCOLOR)"
 
 %.o: %.c
 	@$(CC) -Wall -Wextra -Werror -c $<
 
 clean:
+	@echo "$(GREEN)[libft] - Running clean..$(NOCOLOR)"
+	@echo "$(GREEN)[libft] - Removing object files..$(NOCOLOR)"
 	@/bin/rm -f $(OFILES)
-	@/bin/rm -f a.out
-	@echo "$(GREEN)[libft] - Removed All Object Files.$(NOCOLOR)"
+	@echo "$(GREEN)[libft] - Finished running clean!$(NOCOLOR)"
 
 fclean:    clean
+	@echo "$(GREEN)[libft] - Running fclean..$(NOCOLOR)"
+	@echo "$(GREEN)[libft] - Removing libft.a..$(NOCOLOR)"
 	@/bin/rm -f $(NAME)
-	@echo "$(GREEN)[libft] - Removed .a file and all .o files.$(NOCOLOR)"
+	@echo "$(GREEN)[libft] - Finished running fclean!$(NOCOLOR)"
 
 re: fclean all
