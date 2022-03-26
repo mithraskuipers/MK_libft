@@ -6,11 +6,12 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/21 15:29:25 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/03/26 22:47:53 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/03/26 23:04:01 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 GREEN = \033[92m
+NOCOLOR = \033[0;38m
 NAME = libft.a
 
 SRCS =	ft_atoi.c \
@@ -76,7 +77,7 @@ INCLUDES = libft.h
 all: $(NAME)
 
 $(NAME): $(OFILES) $(INCLUDES)
-	@echo "$(GREEN)[libft] - Compiling library..$(NOCOLOR)"
+	@echo "$(NOCOLOR)[libft] - Compiling library..$(NOCOLOR)"
 	@ar rcs $(NAME) $?
 	@echo "$(GREEN)[libft] - Done!$(NOCOLOR)"
 
